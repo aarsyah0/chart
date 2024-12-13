@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 require_once("koneksi/koneksi.php");
 
@@ -9,7 +9,7 @@ if(isset($_POST['index'])){
 
     $sql = "SELECT * FROM users WHERE username=:username OR email=:email";
     $stmt = $db->prepare($sql);
-    
+
     // bind parameter ke query
     $params = array(
         ":username" => $username,
@@ -46,7 +46,7 @@ if(isset($_POST['register'])){
 
 
     // menyiapkan query
-    $sql = "INSERT INTO users (name, username, email, password) 
+    $sql = "INSERT INTO users (name, username, email, password)
             VALUES (:name, :username, :email, :password)";
     $stmt = $db->prepare($sql);
 
@@ -93,22 +93,22 @@ if(isset($_POST['register'])){
         <form action="" method="post">
           <h1>Daftar Disini</h1>
           <div class="form-group" action>
-               
+
                 <input class="form-control" type="text" name="name" placeholder="Nama kamu" />
             </div>
 
             <div class="form-group">
-               
+
                 <input class="form-control" type="text" name="username" placeholder="Username" />
             </div>
 
             <div class="form-group">
-                
+
                 <input class="form-control" type="email" name="email" placeholder="Alamat Email" />
             </div>
 
             <div class="form-group">
-                
+
                 <input class="form-control" type="password" name="password" placeholder="Password" />
             </div>
 
@@ -128,13 +128,13 @@ if(isset($_POST['register'])){
         <form class="form-lg" action="" method="post">
           <h1>Masuk di sini</h1>
           <div class="form-control2">
-          
+
           <input class="form-control" type="text" name="username" placeholder="Username atau email" />
             <small class="email-error-2"></small>
             <span></span>
           </div>
           <div class="form-control2">
-         
+
           <input class="form-control" type="password" name="password" placeholder="Password" />
             <small class="password-error-2"></small>
             <span></span>
@@ -178,7 +178,7 @@ if(isset($_POST['register'])){
           <div class="overlay-panel overlay-right">
             <h1 class="title">
               Silahkan Login<br />
-              
+
             </h1>
             <p>
               Jika belum memiliki akun Silahkan Registrasi

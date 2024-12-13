@@ -74,7 +74,7 @@
       </div>
       <div class="card--container">
         <div class="card--wrapper"></div>
-      
+
       <div class="card-container"></div>
         <h3 class="main--title">Data Hari ini</h3>
         <div class="card--wrapper">
@@ -131,7 +131,7 @@
             </div>
             <span class="card-detail">**** **** **** 5093</span>
           </div>
-          
+
     <!-- Awal Grafik -->
 
     <div class="chart-container">
@@ -145,7 +145,7 @@
         <canvas id="barChart"></canvas>
       </div>
     </div>
-    
+
     <div class="chart-right">
       <!-- Pie Chart -->
       <canvas id="pieChart"></canvas>
@@ -169,23 +169,23 @@
         datasets: [
           {
             label: 'Penjualan Galon 2021',
-            data: data2021, 
+            data: data2021,
             borderColor: 'rgba(75, 192, 192, 1)', // Warna garis
             backgroundColor: 'rgba(75, 192, 192, 0.2)', // Warna latar belakang area
             borderWidth: 2
           },
           {
             label: 'Penjualan Galon 2022',
-            data: data2022, 
-            borderColor: 'rgba(153, 102, 255, 1)', 
-            backgroundColor: 'rgba(153, 102, 255, 0.2)', 
+            data: data2022,
+            borderColor: 'rgba(153, 102, 255, 1)',
+            backgroundColor: 'rgba(153, 102, 255, 0.2)',
             borderWidth: 2
           },
           {
             label: 'Penjualan Galon 2023',
-            data: data2023, 
-            borderColor: 'rgba(255, 159, 64, 1)', 
-            backgroundColor: 'rgba(255, 159, 64, 0.2)', 
+            data: data2023,
+            borderColor: 'rgba(255, 159, 64, 1)',
+            backgroundColor: 'rgba(255, 159, 64, 0.2)',
             borderWidth: 2
           }
         ]
@@ -216,23 +216,23 @@
         datasets: [
           {
             label: 'Penjualan Galon 2021',
-            data: data2021, 
-            backgroundColor: 'rgba(75, 192, 192, 0.7)', 
-            borderColor: 'rgba(75, 192, 192, 1)', 
+            data: data2021,
+            backgroundColor: 'rgba(75, 192, 192, 0.7)',
+            borderColor: 'rgba(75, 192, 192, 1)',
             borderWidth: 1
           },
           {
             label: 'Penjualan Galon 2022',
-            data: data2022, 
-            backgroundColor: 'rgba(153, 102, 255, 0.7)', 
-            borderColor: 'rgba(153, 102, 255, 1)', 
+            data: data2022,
+            backgroundColor: 'rgba(153, 102, 255, 0.7)',
+            borderColor: 'rgba(153, 102, 255, 1)',
             borderWidth: 1
           },
           {
             label: 'Penjualan Galon 2023',
-            data: data2023, 
-            backgroundColor: 'rgba(255, 159, 64, 0.7)', 
-            borderColor: 'rgba(255, 159, 64, 1)', 
+            data: data2023,
+            backgroundColor: 'rgba(255, 159, 64, 0.7)',
+            borderColor: 'rgba(255, 159, 64, 1)',
             borderWidth: 1
           }
         ]
@@ -291,7 +291,7 @@
         </div>
         </div>
       </div>
-    </div>        
+    </div>
   </body>
   <style>
     .chart-container {
