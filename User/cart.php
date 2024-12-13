@@ -10,10 +10,10 @@
   <meta name="keywords" content="bootstrap, bootstrap4" />
 
 		<!-- Bootstrap CSS -->
-		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/bootstrap.min.css" rel="stylesheet">
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-		<link href="css/tiny-slider.css" rel="stylesheet">
-		<link href="css/style.css" rel="stylesheet">
+		<link href="../css/tiny-slider.css" rel="stylesheet">
+		<link href="../css/style.css" rel="stylesheet">
 		<title>Kartini Shop</title>
 	</head>
 
@@ -41,12 +41,12 @@
 					</ul>
 
 					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-					<li><a class="nav-link" href="login.php"><img src="images/user.svg"></a></li>
-						<li><a class="nav-link" href="cart.php"><img src="images/cart.svg"></a></li>
+					<li><a class="nav-link" href="login.php"><img src="../images/user.svg"></a></li>
+						<li><a class="nav-link" href="cart.php"><img src="../images/cart.svg"></a></li>
 					</ul>
 				</div>
 			</div>
-				
+
 		</nav>
 		<!-- End Header/Navigation -->
 
@@ -63,7 +63,7 @@
 						</div>
 						<div class="col-lg-7">
 							<div class="hero-img-wrap">
-								<img src="images/pickup.png" class="img-fluid">
+								<img src="../images/pickup.png" class="img-fluid">
 							</div>
 						</div>
 					</div>
@@ -71,7 +71,7 @@
 			</div>
 		<!-- End Hero Section -->
 
-		
+
 
 		<div class="untree_co-section before-footer-section">
             <div class="container">
@@ -108,15 +108,15 @@
                                 <button class="btn btn-outline-black increase" type="button">&plus;</button>
                               </div>
                             </div>
-        
+
                           </td>
                           <td>Rp.20,000</td>
                           <td><a href="#" class="btn btn-black btn-sm">X</a></td>
                         </tr>
-        
+
                         <tr>
                           <td class="product-thumbnail">
-                            <img src="images/aquagalonanyar1.png" alt="Image" class="img-fluid">
+                            <img src="../images/aquagalonanyar1.png" alt="Image" class="img-fluid">
                           </td>
                           <td class="product-name">
                             <h2 class="h5 text-black">Agua Galon + galon</h2>
@@ -132,7 +132,7 @@
                                 <button class="btn btn-outline-black increase" type="button">&plus;</button>
                               </div>
                             </div>
-        
+
                           </td>
                           <td>Rp.60,000</td>
                           <td><a href="#" class="btn btn-black btn-sm">X</a></td>
@@ -142,7 +142,7 @@
                   </div>
                 </form>
               </div>
-        
+
               <div class="row">
                 <div class="col-md-6">
                   <div class="row mb-5">
@@ -191,7 +191,7 @@
               </div>
             </div>
           </div>
-		
+
 
 		<!-- Start Footer Section -->
 		<footer class="footer-section">
@@ -268,7 +268,7 @@
 
 			</div>
 		</footer>
-		<!-- End Footer Section -->	
+		<!-- End Footer Section -->
 
 
 		<script src="js/bootstrap.bundle.min.js"></script>

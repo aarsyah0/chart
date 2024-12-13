@@ -28,7 +28,7 @@ if(isset($_POST['index'])){
             session_start();
             $_SESSION["user"] = $user;
             // login sukses, alihkan ke halaman timeline
-            header("Location: Admin/timeline.php");
+            header("Location: timeline.php");
         }
     }
 }
