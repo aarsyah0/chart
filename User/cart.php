@@ -1,72 +1,50 @@
 <?php
-// Aktifkan error reporting
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-
-// Mulai sesi
 session_start();
 
-// Cek apakah user sudah login
 if (!isset($_SESSION["user"])) {
-    header("Location: ../login.php");  // Redirect ke halaman login jika belum login
-    exit;
+    header("Location: ../login.php");
 }
 
 $user = $_SESSION["user"];
-$user_id = $user['user_id']; // Anggap ID user disimpan dalam session
-
-// Koneksi database
+$user_id = $user['user_id'];
 $host = 'localhost';
 $username = 'root';
 $password = '';
 $dbname = 'project_wsi';
-
-// Membuat koneksi
 $conn = new mysqli($host, $username, $password, $dbname);
-
-// Cek koneksi
 if ($conn->connect_error) {
     die("Koneksi gagal: " . $conn->connect_error);
 }
 
-// Cek apakah ada aksi checkout
 if (isset($_GET['action']) && $_GET['action'] == 'checkout') {
-    // Query untuk mengambil data keranjang belanja untuk user yang login
     $query = "SELECT c.cart_id, p.id AS product_id, p.harga, c.quantity
               FROM cart c
               JOIN products p ON c.product_id = p.id
               WHERE c.user_id = ?";
 
-    // Menyiapkan statement
     $stmt = $conn->prepare($query);
     if ($stmt === false) {
         die("Error preparing statement: " . $conn->error);
     }
 
-    // Bind parameter
     $stmt->bind_param("i", $user_id);
-
-    // Eksekusi statement
     $stmt->execute();
     $result = $stmt->get_result();
 
-    // Membuat pesanan baru
     $total_amount = 0;
     $order_items = [];
     while ($row = $result->fetch_assoc()) {
         $order_items[] = $row;
         $total_amount += $row['harga'] * $row['quantity'];
     }
-
-    // Memasukkan data pesanan ke tabel orders
     $order_query = "INSERT INTO orders (user_id, total_amount, status, order_date)
                     VALUES (?, ?, 'Pending', NOW())";
     $order_stmt = $conn->prepare($order_query);
     $order_stmt->bind_param("id", $user_id, $total_amount);
     $order_stmt->execute();
     $order_id = $conn->insert_id;
-
-    // Memasukkan data item pesanan ke tabel order_items
     foreach ($order_items as $item) {
         $order_item_query = "INSERT INTO order_items (order_id, product_id, quantity)
                              VALUES (?, ?, ?)";
@@ -75,23 +53,18 @@ if (isset($_GET['action']) && $_GET['action'] == 'checkout') {
         $order_item_stmt->execute();
     }
 
-    // Hapus barang dari keranjang setelah checkout
     $delete_query = "DELETE FROM cart WHERE user_id = ?";
     $delete_stmt = $conn->prepare($delete_query);
     $delete_stmt->bind_param("i", $user_id);
     $delete_stmt->execute();
 
-    // Redirect ke halaman konfirmasi setelah checkout
     header("Location: checkout_success.php?order_id=" . $order_id);
     exit;
 }
 
-// Fungsi untuk mengupdate quantity di keranjang
 if (isset($_POST['update_cart'])) {
     $cart_id = $_POST['cart_id'];
     $new_quantity = $_POST['quantity'];
-
-    // Update jumlah item dalam keranjang
     $update_query = "UPDATE cart SET quantity = ? WHERE cart_id = ?";
     $stmt = $conn->prepare($update_query);
     $stmt->bind_param("ii", $new_quantity, $cart_id);
@@ -100,11 +73,8 @@ if (isset($_POST['update_cart'])) {
     exit;
 }
 
-// Fungsi untuk menghapus item dari keranjang
 if (isset($_GET['remove'])) {
     $cart_id = $_GET['remove'];
-
-    // Menghapus item dari keranjang
     $delete_query = "DELETE FROM cart WHERE cart_id = ?";
     $stmt = $conn->prepare($delete_query);
     $stmt->bind_param("i", $cart_id);
@@ -113,26 +83,18 @@ if (isset($_GET['remove'])) {
     exit;
 }
 
-// Query untuk mengambil data keranjang belanja untuk user yang login
 $query = "SELECT c.cart_id, p.jenis, p.harga, c.quantity, p.image_url
           FROM cart c
           JOIN products p ON c.product_id = p.id
           WHERE c.user_id = ?";
-
-// Menyiapkan statement
 $stmt = $conn->prepare($query);
 if ($stmt === false) {
     die("Error preparing statement: " . $conn->error);
 }
 
-// Bind parameter
 $stmt->bind_param("i", $user_id);
-
-// Eksekusi statement
 $stmt->execute();
 $result = $stmt->get_result();
-
-// Cek apakah query menghasilkan data
 if ($result === false) {
     die("Error executing query: " . $stmt->error);
 }
@@ -141,8 +103,6 @@ $cart_items = [];
 while ($row = $result->fetch_assoc()) {
     $cart_items[] = $row;
 }
-
-// Tutup statement dan koneksi
 $stmt->close();
 $conn->close();
 ?>

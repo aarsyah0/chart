@@ -1,12 +1,10 @@
 <?php
-session_start(); // Mulai sesi
+session_start();
 if (!isset($_SESSION["user"])) {
-    // Jika sesi user belum ada, redirect ke halaman login
     header("Location: ../login.php");
     exit;
 }
 
-// Jika sudah login, lanjutkan proses tambah data
 $user = $_SESSION["user"];
 $user_id = $user['user_id'];
 ?>
@@ -212,9 +210,9 @@ $user_id = $user['user_id'];
       .then(response => response.json())
       .then(data => {
         if (data.success) {
-          alert(data.message);  // Show success message
+          alert(data.message);
         } else {
-          alert(`Gagal: ${data.message}`);  // Show error message
+          alert(`Gagal: ${data.message}`);
         }
       })
       .catch(error => console.error('Error:', error));

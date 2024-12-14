@@ -10,17 +10,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $harga = $_POST['harga'];
     $stok = $_POST['stok'];
     $kategori = $_POST['kategori'];
-    
-    // Proses upload gambar
     $image_url = '';
     if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
         $image_url = "uploads/" . basename($_FILES['image']['name']);
         move_uploaded_file($_FILES['image']['tmp_name'], $image_url);
     }
 
-    $sql = "INSERT INTO products (jenis, deskripsi, harga, stok, kategori, image_url) 
+    $sql = "INSERT INTO products (jenis, deskripsi, harga, stok, kategori, image_url)
             VALUES ('$jenis', '$deskripsi', '$harga', '$stok', '$kategori', '$image_url')";
-    
+
     if ($conn->query($sql) === TRUE) {
         echo "Data berhasil ditambahkan!";
     } else {
@@ -58,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <option value="Air_mineral_Aqua_Karton_1,5L">Air mineral Aqua Karton 1,5 L</option>
                 <option value="Air_mineral_Le_Minerale_Karton_1,5L">Air mineral Le Minerale Karton 1,5L</option>
             </select>
-           
+
             <label for="deskripsi">Deskripsi</label>
             <input type="text" id="deskripsi" name="deskripsi" placeholder="Deskripsi" class="form-control" required>
 
@@ -72,14 +70,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <select id="kategori" name="kategori" class="form-control" required>
                 <option value="">Pilih Kategori</option>
                 <?php
-
-                // Ambil data kategori
                 $sql = "SELECT category_id, category_name FROM categories"; // Pastikan product_name tabel benar
                 $result = $conn->query($sql);
 
                 if (!$result) {
                     die("Query gagal: " . $conn->error); // Menampilkan error jika query gagal
-                }                
+                }
 
                 if ($result->num_rows > 0) {
                     // Loop data kategori
@@ -94,10 +90,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <label for="image_url">Image</label>
             <input type="file" id="image_url" name="image_url" class="form-control" required>
-            
+
             <button class="btn btn-success mt-3" type="submit" name="tambah" value="Tambah Data">Tambah</button>
         </form>
     </div>
-   
+
 </body>
 </html>
