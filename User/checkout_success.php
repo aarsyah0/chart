@@ -99,6 +99,7 @@ $conn->close();
                 <p>Status Pesanan: <?php echo ucfirst($order_details[0]['status']); ?></p>
                 <p>Total Pembayaran: Rp.<?php echo number_format($order_details[0]['total_amount'], 2, ',', '.'); ?></p>
                 <p>Tanggal Pemesanan: <?php echo date('d-m-Y H:i:s', strtotime($order_details[0]['order_date'])); ?></p>
+                <p>Pembayaran : +6289529862954 </p>
 
                 <h4>Detail Produk:</h4>
                 <table class="table">
