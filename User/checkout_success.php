@@ -1,78 +1,58 @@
 <?php
-// Aktifkan error reporting
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Mulai sesi
 session_start();
 
-// Cek apakah user sudah login
 if (!isset($_SESSION["user"])) {
-    header("Location: ../login.php");  // Redirect ke halaman login jika belum login
+    header("Location: ../login.php");
     exit;
 }
 
 $user = $_SESSION["user"];
-$user_id = $user['user_id']; // Anggap ID user disimpan dalam session
+$user_id = $user['user_id'];
 
-// Koneksi database
 $host = 'localhost';
 $username = 'root';
 $password = '';
 $dbname = 'project_wsi';
 
-// Membuat koneksi
 $conn = new mysqli($host, $username, $password, $dbname);
 
-// Cek koneksi
 if ($conn->connect_error) {
     die("Koneksi gagal: " . $conn->connect_error);
 }
 
-// Ambil ID order dari URL
 $order_id = isset($_GET['order_id']) ? $_GET['order_id'] : null;
 
 if ($order_id) {
-    // Query untuk mengambil data pesanan berdasarkan order_id
     $query = "SELECT o.order_id, o.total_amount, o.status, o.order_date,
                  p.jenis, p.harga, oi.quantity, p.image_url
           FROM orders o
           JOIN order_items oi ON o.order_id = oi.order_id
           JOIN products p ON oi.product_id = p.id
           WHERE o.order_id = ? AND o.user_id = ?";
-
-
-    // Menyiapkan statement
     $stmt = $conn->prepare($query);
     if ($stmt === false) {
         die("Error preparing statement: " . $conn->error);
     }
-
-    // Bind parameter
     $stmt->bind_param("ii", $order_id, $user_id);
-
-    // Eksekusi statement
     $stmt->execute();
     $result = $stmt->get_result();
-
-    // Cek apakah data ditemukan
     if ($result->num_rows > 0) {
         $order_details = [];
         while ($row = $result->fetch_assoc()) {
             $order_details[] = $row;
         }
     } else {
-        // Jika order tidak ditemukan
         die("Order tidak ditemukan atau Anda tidak berhak melihat pesanan ini.");
     }
 
-    // Tutup statement
     $stmt->close();
 } else {
     die("Order ID tidak valid.");
 }
 
-// Tutup koneksi
 $conn->close();
 ?>
 
