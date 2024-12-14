@@ -1,4 +1,5 @@
-<?php require_once("koneksi/koneksi.php"); ?>
+<?php
+require_once("koneksi/koneksi.php"); ?>
 
 
 <!DOCTYPE html>
@@ -50,7 +51,7 @@
           </a>
         </li>
         <li>
-          <a href="index.php">
+          <a href="logout.php">
             <i class="fas fa-sign-out-alt"></i>
             <span>Logout</span>
           </a>

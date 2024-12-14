@@ -2,8 +2,8 @@
 
 require_once("koneksi/koneksi.php");
 
-if(isset($_POST['index'])){
-
+if(isset($_POST['index']))
+{
     $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
     $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
 
@@ -27,13 +27,24 @@ if(isset($_POST['index'])){
             // buat Session
             session_start();
             $_SESSION["user"] = $user;
-            // login sukses, alihkan ke halaman timeline
-            header("Location: timeline.php");
+
+            // cek level user
+            if ($user["level"] == 1) {
+                // Admin, alihkan ke halaman timeline
+                header("Location: timeline.php");
+            } else {
+                // User, alihkan ke halaman index
+                header("Location: index.php");
+            }
+        } else {
+            // jika password salah
+            echo "Password salah!";
         }
+    } else {
+        // jika user tidak ditemukan
+        echo "Pengguna tidak ditemukan!";
     }
 }
-
-require_once("koneksi/koneksi.php");
 
 if(isset($_POST['register'])){
 
@@ -44,10 +55,12 @@ if(isset($_POST['register'])){
     $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 
+    // set level ke 2 (User) secara default
+    $level = 2;
 
     // menyiapkan query
-    $sql = "INSERT INTO users (name, username, email, password)
-            VALUES (:name, :username, :email, :password)";
+    $sql = "INSERT INTO users (name, username, email, password, level)
+            VALUES (:name, :username, :email, :password, :level)";
     $stmt = $db->prepare($sql);
 
     // bind parameter ke query
@@ -55,7 +68,8 @@ if(isset($_POST['register'])){
         ":name" => $name,
         ":username" => $username,
         ":password" => $password,
-        ":email" => $email
+        ":email" => $email,
+        ":level" => $level // Menetapkan level 2 (User)
     );
 
     // eksekusi query untuk menyimpan ke database
@@ -63,8 +77,14 @@ if(isset($_POST['register'])){
 
     // jika query simpan berhasil, maka user sudah terdaftar
     // maka alihkan ke halaman login
-    if($saved) header("Location: login.php");
+    if($saved) {
+        header("Location: login.php");
+    } else {
+        echo "Terjadi kesalahan saat mendaftar. Silakan coba lagi.";
+    }
 }
+
+
 ?>
 
 

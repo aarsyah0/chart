@@ -10,10 +10,10 @@
   <meta name="keywords" content="bootstrap, bootstrap4" />
 
 		<!-- Bootstrap CSS -->
-		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/bootstrap.min.css" rel="stylesheet">
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-		<link href="css/tiny-slider.css" rel="stylesheet">
-		<link href="css/style.css" rel="stylesheet">
+		<link href="../css/tiny-slider.css" rel="stylesheet">
+		<link href="../css/style.css" rel="stylesheet">
 		<title>Kartini Shop </title>
 	</head>
 
@@ -23,7 +23,7 @@
 		<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
 
 			<div class="container">
-				<a class="navbar-brand" href="index.php">Galon Super<span>.</span></a>
+				<a class="navbar-brand" href="../index.php">Galon Super<span>.</span></a>
 
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -32,7 +32,7 @@
 				<div class="collapse navbar-collapse" id="navbarsFurni">
 					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
 						<li class="nav-item">
-							<a class="nav-link" href="index.php">Home</a>
+							<a class="nav-link" href="../index.php">Home</a>
 						</li>
 						<li><a class="nav-link" href="product.php">Product</a></li>
 						<li><a class="nav-link" href="about.php">About us</a></li>
@@ -41,12 +41,12 @@
 					</ul>
 
 					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-					<li><a class="nav-link" href="login.php"><img src="images/user.svg"></a></li>
-						<li><a class="nav-link" href="cart.php"><img src="images/cart.svg"></a></li>
+					<li><a class="nav-link" href="login.php"><img src="../images/user.svg"></a></li>
+						<li><a class="nav-link" href="cart.php"><img src="../images/cart.svg"></a></li>
 					</ul>
 				</div>
 			</div>
-				
+
 		</nav>
 		<!-- End Header/Navigation -->
 
@@ -63,27 +63,27 @@
 						</div>
 						<div class="col-lg-7">
 							<div class="hero-img-wrap">
-								<img src="images/pickup.png" class="img-fluid">
+								<img src="../images/pickup.png" class="img-fluid">
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		
+
 		<!-- End Hero Section -->
 
-		
+
 
 		<!-- Start Why Choose Us Section -->
 		<div class="why-choose-section">
 			<div class="container">
-				
-				
+
+
 				<div class="row my-5">
 					<div class="col-6 col-md-6 col-lg-3 mb-4">
 						<div class="feature">
 							<div class="icon">
-								<img src="images/truck.svg" alt="Image" class="imf-fluid">
+								<img src="../images/truck.svg" alt="Image" class="imf-fluid">
 							</div>
 							<h3>Fast &amp; Free Shipping</h3>
 							<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
@@ -93,7 +93,7 @@
 					<div class="col-6 col-md-6 col-lg-3 mb-4">
 						<div class="feature">
 							<div class="icon">
-								<img src="images/bag.svg" alt="Image" class="imf-fluid">
+								<img src="../images/bag.svg" alt="Image" class="imf-fluid">
 							</div>
 							<h3>Easy to Shop</h3>
 							<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
@@ -103,7 +103,7 @@
 					<div class="col-6 col-md-6 col-lg-3 mb-4">
 						<div class="feature">
 							<div class="icon">
-								<img src="images/support.svg" alt="Image" class="imf-fluid">
+								<img src="../images/support.svg" alt="Image" class="imf-fluid">
 							</div>
 							<h3>24/7 Support</h3>
 							<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
@@ -113,7 +113,7 @@
 					<div class="col-6 col-md-6 col-lg-3 mb-4">
 						<div class="feature">
 							<div class="icon">
-								<img src="images/return.svg" alt="Image" class="imf-fluid">
+								<img src="../images/return.svg" alt="Image" class="imf-fluid">
 							</div>
 							<h3>Hassle Free Returns</h3>
 							<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
@@ -123,7 +123,7 @@
 					<div class="col-6 col-md-6 col-lg-3 mb-4">
 						<div class="feature">
 							<div class="icon">
-								<img src="images/truck.svg" alt="Image" class="imf-fluid">
+								<img src="../images/truck.svg" alt="Image" class="imf-fluid">
 							</div>
 							<h3>Fast &amp; Free Shipping</h3>
 							<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
@@ -133,7 +133,7 @@
 					<div class="col-6 col-md-6 col-lg-3 mb-4">
 						<div class="feature">
 							<div class="icon">
-								<img src="images/bag.svg" alt="Image" class="imf-fluid">
+								<img src="../images/bag.svg" alt="Image" class="imf-fluid">
 							</div>
 							<h3>Easy to Shop</h3>
 							<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
@@ -143,7 +143,7 @@
 					<div class="col-6 col-md-6 col-lg-3 mb-4">
 						<div class="feature">
 							<div class="icon">
-								<img src="images/support.svg" alt="Image" class="imf-fluid">
+								<img src="../images/support.svg" alt="Image" class="imf-fluid">
 							</div>
 							<h3>24/7 Support</h3>
 							<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
@@ -153,7 +153,7 @@
 					<div class="col-6 col-md-6 col-lg-3 mb-4">
 						<div class="feature">
 							<div class="icon">
-								<img src="images/return.svg" alt="Image" class="imf-fluid">
+								<img src="../images/return.svg" alt="Image" class="imf-fluid">
 							</div>
 							<h3>Hassle Free Returns</h3>
 							<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
@@ -161,7 +161,7 @@
 					</div>
 
 				</div>
-			
+
 			</div>
 		</div>
 		<!-- End Why Choose Us Section -->
@@ -176,32 +176,32 @@
 						<h2 class="mb-4 section-title">Crafted with excellent material.</h2>
 						<p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. </p>
 						<p><a href="#" class="btn">Explore</a></p>
-					</div> 
+					</div>
 					<!-- End Column 1 -->
 
 					<!-- Start Column 2 -->
 					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
 						<a class="product-item" href="#">
-							<img src="images/aquagalonanyar1.png" class="img-fluid product-thumbnail">
+							<img src="../images/aquagalonanyar1.png" class="img-fluid product-thumbnail">
 							<h3 class="product-title">Aqua Galon</h3>
 							<strong class="product-price">Rp.60.000</strong>
 
 							<span class="icon-cross">
-								<img src="images/cross.svg" class="img-fluid">
+								<img src="../images/cross.svg" class="img-fluid">
 							</span>
 						</a>
-					</div> 
+					</div>
 					<!-- End Column 2 -->
 
 					<!-- Start Column 3 -->
 					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
 						<a class="product-item" href="#">
-							<img src="images/cleo_galon1.png" class="img-fluid product-thumbnail">
+							<img src="../images/cleo_galon1.png" class="img-fluid product-thumbnail">
 							<h3 class="product-title">Galon Cleo</h3>
 							<strong class="product-price">Rp.80.000</strong>
 
 							<span class="icon-cross">
-								<img src="images/cross.svg" class="img-fluid">
+								<img src="../images/cross.svg" class="img-fluid">
 							</span>
 						</a>
 					</div>
@@ -210,12 +210,12 @@
 					<!-- Start Column 4 -->
 					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
 						<a class="product-item" href="#">
-							<img src="images/leminerale_galon1.png" class="img-fluid product-thumbnail">
+							<img src="../images/leminerale_galon1.png" class="img-fluid product-thumbnail">
 							<h3 class="product-title">Galon GalonLemineral</h3>
 							<strong class="product-price">Rp.24.000</strong>
 
 							<span class="icon-cross">
-								<img src="images/cross.svg" class="img-fluid">
+								<img src="../images/cross.svg" class="img-fluid">
 							</span>
 						</a>
 					</div>
@@ -300,7 +300,7 @@
 
 			</div>
 		</footer>
-		<!-- End Footer Section -->	
+		<!-- End Footer Section -->
 
 
 		<script src="js/bootstrap.bundle.min.js"></script>
