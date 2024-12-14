@@ -6,7 +6,7 @@ session_start();
 if (!isset($_SESSION["user"])) {
     header("Location: ../login.php");
 }
-
+// fungsi untuk menambahkan ke order
 $user = $_SESSION["user"];
 $user_id = $user['user_id'];
 $host = 'localhost';
@@ -17,7 +17,7 @@ $conn = new mysqli($host, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Koneksi gagal: " . $conn->connect_error);
 }
-
+// aksi untuk melakukan checkout
 if (isset($_GET['action']) && $_GET['action'] == 'checkout') {
     $query = "SELECT c.cart_id, p.id AS product_id, p.harga, c.quantity
               FROM cart c
@@ -61,7 +61,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'checkout') {
     header("Location: checkout_success.php?order_id=" . $order_id);
     exit;
 }
-
+// untuk update pesanan di cart
 if (isset($_POST['update_cart'])) {
     $cart_id = $_POST['cart_id'];
     $new_quantity = $_POST['quantity'];

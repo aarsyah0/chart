@@ -195,6 +195,7 @@ $user_id = $user['user_id'];
 		<script src="js/bootstrap.bundle.min.js"></script>
 		<script src="js/tiny-slider.js"></script>
 		<script src="js/custom.js"></script>
+        <!-- untuk mengatur button add cart dan diarahkan ke add cart  -->
         <script>
  document.addEventListener('DOMContentLoaded', () => {
   const buttons = document.querySelectorAll('.add-to-cart');
