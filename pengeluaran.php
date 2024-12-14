@@ -59,17 +59,18 @@ include 'koneksi/koneksi.php';
             <div class="user--info">
                 <div class="search--box">
                     <i class="fa-solid fa-search"></i>
-                    <input type="text" placeholder="Search">
+                    <input type="text" id="search-input" placeholder="Search Order Id or Name">
                 </div>
-                <img src="admin.png" alt="">
+                <img src="images/person_1.jpg" alt="">
             </div>
         </div>
 
         <div class="card--container">
             <div class="card--wrapper">
-                <table class="table table-striped table-bordered table-hover">
+                <table class="table table-striped table-bordered table-hover" id="orders-table">
                     <thead class="table-dark">
                         <tr>
+                            <th>Order ID</th>
                             <th>Nama Pemesan</th>
                             <th>Barang</th>
                             <th>Jumlah</th>
@@ -86,17 +87,18 @@ include 'koneksi/koneksi.php';
                             JOIN order_items oi ON o.order_id = oi.order_id
                             JOIN products p ON oi.product_id = p.id
                             JOIN users u ON o.user_id = u.user_id
-                            ORDER BY o.order_date DESC";
+                            ORDER BY o.order_id DESC";
 
                     $result = $conn->query($sql);
 
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
-                            echo "<tr id='order-row-" . $row['order_id'] . "'>";
+                            echo "<tr>";
+                            echo "<td>" . $row['order_id'] . "</td>";
                             echo "<td>" . $row['user_name'] . "</td>";
                             echo "<td>" . $row['product_name'] . "</td>";
                             echo "<td>" . $row['quantity'] . "</td>";
-                            echo "<td class='status-cell'>" . $row['status'] . "</td>";
+                            echo "<td>" . $row['status'] . "</td>";
                             echo "<td>Rp " . number_format($row['total_amount'], 2, ',', '.') . "</td>";
                             echo "<td>" . $row['order_date'] . "</td>";
                             echo "<td>";
@@ -113,7 +115,7 @@ include 'koneksi/koneksi.php';
                             echo "</tr>";
                         }
                     } else {
-                        echo "<tr><td colspan='7'>No orders found</td></tr>";
+                        echo "<tr><td colspan='8'>No orders found</td></tr>";
                     }
 
                     $conn->close();
@@ -123,6 +125,24 @@ include 'koneksi/koneksi.php';
             </div>
         </div>
     </div>
+
+    <script>
+        document.getElementById('search-input').addEventListener('keyup', function () {
+            const searchValue = this.value.toLowerCase();
+            const rows = document.querySelectorAll('#orders-table tbody tr');
+
+            rows.forEach(row => {
+                const orderId = row.cells[0].textContent.toLowerCase();
+                const userName = row.cells[1].textContent.toLowerCase();
+
+                if (orderId.includes(searchValue) || userName.includes(searchValue)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
